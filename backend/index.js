@@ -1,5 +1,5 @@
 const express = require('express')
-const users = require('.src/users');
+const users = require('./src/users');
 
 require('dotenv').config()
 const app = express()
