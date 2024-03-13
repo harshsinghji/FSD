@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const filePath = path.resolve(__dirname,'models/users.json');
+const filePath = path.resolve(__dirname, 'models/posts.json');
 
 async function fetchDataUsingFs() {
     try {
@@ -14,15 +14,16 @@ async function fetchDataUsingFs() {
     }
 }
 
-async function getUsers(req,res){
+async function getPosts(req, res) {
     try {
         const data = await fetchDataUsingFs();
-        const userdata = JSON.parse(data).users;
-        
-        return res.json(userdata);
+        console.log(data);
+        const posts = JSON.parse(data);
+
+        return res.json(posts);
     } catch (error) {
-        return error.message;    
-    }   
+        return error.message;
+    }
 };
 
-module.exports = { getUsers };
+module.exports = { getPosts };
